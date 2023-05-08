@@ -1,14 +1,16 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamation, faPlus } from '@fortawesome/free-solid-svg-icons';
 import Button from './shared/Button';
+import TasksContext from '../Context/TasksContext';
 
-function AddItem({ getData }) {
+function AddItem() {
   const [text, setText] = useState('');
   const [message, setMessage] = useState(null);
 
+  const { handleAdd } = useContext(TasksContext);
   const handleTextChange = (event) => {
     setText(event.target.value);
   };
@@ -28,7 +30,7 @@ function AddItem({ getData }) {
         text,
       };
 
-      getData(newItem);
+      handleAdd(newItem);
     }
   };
 

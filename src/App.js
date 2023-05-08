@@ -1,25 +1,34 @@
-import { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import AddItem from './components/AddItem';
 import ListItems from './components/ListItems';
 import AboutIconLink from './components/AboutIconLink';
+import { TaskProvider } from './Context/TasksContext';
+import AboutPage from './pages/AboutPage';
 
 function App() {
-  const [data, setData] = useState([]);
-
-  const handleAdd = (Data) => {
-    setData([Data, ...data]);
-  };
-
   return (
-    <>
-      <Header />
-      <div className='container'>
-        <AddItem getData={(Data) => handleAdd(Data)} />
-        <ListItems data={data} />
-      </div>
-      <AboutIconLink />
-    </>
+    <Router>
+      <TaskProvider>
+        <Header />
+        <div className='container'>
+          <Routes>
+            <Route
+              exact
+              path='/'
+              element={
+                <>
+                  <AddItem />
+                  <ListItems />
+                </>
+              }
+            />
+            <Route path='/about' element={<AboutPage />} />
+          </Routes>
+        </div>
+        <AboutIconLink />
+      </TaskProvider>
+    </Router>
   );
 }
 export default App;

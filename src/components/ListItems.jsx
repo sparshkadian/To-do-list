@@ -1,6 +1,10 @@
 import SingleItem from './SingleItem';
+import { useContext } from 'react';
+import TasksContext from '../Context/TasksContext';
 
-function ListItems({ data }) {
+function ListItems() {
+  const { data } = useContext(TasksContext);
+
   return (
     <div>
       {data.map((item) => (
