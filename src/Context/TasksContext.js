@@ -6,12 +6,7 @@ export const TaskProvider = ({ children }) => {
   const [data, setData] = useState([]);
 
   const handleAdd = (Data) => {
-    let key = Data.id;
-    let value = Data.text;
-
     setData([Data, ...data]);
-
-    localStorage.setItem(key, value);
   };
 
   const handleDelete = (id) => {

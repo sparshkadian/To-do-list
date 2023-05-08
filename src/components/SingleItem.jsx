@@ -12,7 +12,6 @@ function SingleItem({ item }) {
     <Card>
       <div className='task-display'>
         <p className='task-display'>{item.text}</p>
-        <p className='task-priority'>'priority'</p>
         <button
           onClick={() => {
             handleDelete(item.id);
@@ -22,6 +21,7 @@ function SingleItem({ item }) {
           <FontAwesomeIcon icon={faXmark} />
         </button>
       </div>
+      <p className='task-priority'>Priority = {item.priority}</p>
     </Card>
   );
 }

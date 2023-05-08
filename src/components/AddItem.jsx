@@ -5,14 +5,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamation, faPlus } from '@fortawesome/free-solid-svg-icons';
 import Button from './shared/Button';
 import TasksContext from '../Context/TasksContext';
+import PrioritySelect from './PrioritySelect';
 
 function AddItem() {
   const [text, setText] = useState('');
   const [message, setMessage] = useState(null);
+  const [priority, setPriority] = useState();
 
   const { handleAdd } = useContext(TasksContext);
   const handleTextChange = (event) => {
     setText(event.target.value);
+  };
+
+  const setRating = (rating) => {
+    setPriority(rating);
   };
 
   const handleSubmit = (event) => {
@@ -28,6 +34,7 @@ function AddItem() {
       const newItem = {
         id: uuidv4(),
         text,
+        priority,
       };
 
       handleAdd(newItem);
@@ -50,6 +57,12 @@ function AddItem() {
             <FontAwesomeIcon icon={faPlus} size='2x' />
           </Button>
         </div>
+        <p className='select-priority-msg'>Select Task Priority</p>
+        <PrioritySelect
+          priority={(rating) => {
+            setRating(rating);
+          }}
+        />
       </form>
       {message && (
         <div className='no-input-message'>

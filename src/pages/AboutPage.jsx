@@ -6,7 +6,11 @@ function AboutPage() {
       <p>This is a To-do List Web App made using React</p>
       <p>Version: 1.0.0</p>
       <p>Dev: Sparsh Kadian</p>
-      <Link to='/'>Back to Home</Link>
+      <div className='back-home-container'>
+        <Link className='back-home-link' to='/'>
+          Back to Home
+        </Link>
+      </div>
     </div>
   );
 }
