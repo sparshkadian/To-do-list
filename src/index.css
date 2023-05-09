@@ -78,6 +78,15 @@ input[type='text']:focus {
   outline: none;
 }
 
+/* attempt to change input's white appearance */
+/* input:-webkit-autofill { */
+/* z-index: -1;
+  border-radius: 20px;
+  margin-right: 20px;
+
+  LOL:- I just disabled the AutoFill
+} */
+
 .btn-add {
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
   transition: all 0.4s ease;
@@ -171,6 +180,16 @@ input[type='text']:focus {
   color: #000;
 }
 
+/* TASKS-STATS COMPONENT */
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  margin-left: 10px;
+  margin-right: 4px;
+}
+
 /* ABOUT_PAGE COMPONENT */
 .about-container {
   position: relative;
@@ -193,27 +212,31 @@ input[type='text']:focus {
 
 /* SINGLE_ITEM COMPONENT*/
 .task-display {
-  position: relative;
   display: flex;
   justify-content: space-between;
 }
 
 .delete-task-icon {
-  position: absolute;
   cursor: pointer;
   background: none;
   border: none;
-  top: 67%;
-  right: -17px;
 }
 
 .task-priority {
+  display: inline-block;
   font-size: 1rem;
+  background-color: rgba(252, 222, 103, 1);
+  padding: 5px 10px;
+  border-radius: 50%;
+  position: absolute;
+
+  top: -10px;
+  left: -10px;
 }
 
 /* ABOUT_ICON_LINK */
 .about-link {
-  position: absolute;
+  position: fixed;
   bottom: 10px;
   right: 10px;
   cursor: pointer;
@@ -229,6 +252,7 @@ input[type='text']:focus {
 }
 
 .card {
+  position: relative;
   background: linear-gradient(
     to bottom right,
     rgba(91, 204, 246, 0.7),
@@ -237,7 +261,7 @@ input[type='text']:focus {
   font-weight: 500;
   border-radius: 8px;
   padding: 15px 30px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
