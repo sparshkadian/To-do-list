@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import TasksContext from '../Context/TasksContext';
 
 function PrioritySelect({ priority }) {
+  const { reset_priority } = useContext(TasksContext);
+
   const [select, setSelect] = useState();
 
   const selected = (event) => {

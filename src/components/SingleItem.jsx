@@ -21,7 +21,7 @@ function SingleItem({ item }) {
           <FontAwesomeIcon icon={faXmark} />
         </button>
       </div>
-      <p className='task-priority'>Priority = {item.priority}</p>
+      <p className='task-priority'>{item.priority}</p>
     </Card>
   );
 }

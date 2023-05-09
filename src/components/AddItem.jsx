@@ -52,6 +52,7 @@ function AddItem() {
             id='new_work'
             placeholder='Add New Task'
             value={text}
+            autoComplete='off'
           />
           <Button type='submit' className='btn btn-add'>
             <FontAwesomeIcon icon={faPlus} size='2x' />
