@@ -1,3 +1,4 @@
+import { motion, AnimatePresence } from 'framer-motion';
 import SingleItem from './SingleItem';
 import { useContext } from 'react';
 import TasksContext from '../Context/TasksContext';
@@ -7,9 +8,18 @@ function ListItems() {
 
   return (
     <div>
-      {data.map((item) => (
-        <SingleItem key={item.id} item={item} />
-      ))}
+      <AnimatePresence>
+        {data.map((item) => (
+          <motion.div
+            key={item.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <SingleItem key={item.id} item={item} />
+          </motion.div>
+        ))}
+      </AnimatePresence>
     </div>
   );
 }
